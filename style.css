@@ -246,7 +246,7 @@ body:has(nav>details[support]:hover) footer p.discord {
             background-image: url(./assets/github-logo.png);
         }
 
-        &[href="https://discord.gg/####"]::after {
+        &[href="https://discord.gg/VcbEZAyPke"]::after {
             background-image: url(./assets/discord-logo.png);
         }
 
