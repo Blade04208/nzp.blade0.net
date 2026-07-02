@@ -242,7 +242,7 @@ body:has(nav>details[support]:hover) footer p.discord {
             background-image: url(./assets/nzp-logo.png);
         }
 
-        &[href="https://abgithub.com/blade04208/NZP-Server-Maps"]::after {
+        &[href="https://github.com/blade04208/NZP-Server-Maps"]::after {
             background-image: url(./assets/github-logo.png);
         }
 
