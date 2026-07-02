@@ -1,0 +1,304 @@
+@font-face {
+    font-family: 'NZP Standard';
+    src: url('./assets/nzp-standard.otf');
+}
+
+:root {
+    font-family: 'NZP Standard', sans-serif;
+    font-size: 24px;
+    color: #bababa;
+    text-shadow: 3px 3px #2e2e2e;
+    cursor: url(./assets/cursor.svg), auto !important;
+}
+
+a {
+    cursor: url(./assets/cursor.svg), auto !important;
+    color: lightskyblue;
+    text-shadow: 3px 3px darkblue;
+    text-decoration: underline 3px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0px;
+}
+
+main {
+    display: flex;
+    flex-wrap: nowrap;
+    flex: 1 0 auto;
+}
+
+body,
+html {
+    padding: 0px;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: url(./assets/bg.png);
+    background-size: cover;
+    background-position: center center;
+    /*overflow: hidden;*/
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+header {
+    background-color: #020202;
+    border-bottom: 6px solid #333333;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 14px 12px;
+
+    h1 {
+        margin: 0px;
+        font-size: 48px;
+        text-shadow: 6px 6px #2e2e2e;
+        padding-top: 20px;
+        padding-bottom: 6px;
+    }
+
+    .end {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+
+        :last-child {
+            color: #baba00;
+            text-shadow: 2px 2px #2e2e00;
+        }
+    }
+}
+
+
+nav {
+    margin-top: 38px;
+    margin-bottom: 38px;
+    width: min(551px, 50vw);
+    flex: 0 0 auto;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+
+    details {
+        summary {
+            text-align: end;
+            text-transform: uppercase;
+            padding: 4px;
+            font-size: 28px;
+            margin-bottom: 5px;
+            text-shadow: 3px 3px #2e2e2e;
+
+            &::marker {
+                font-size: 0px;
+            }
+        }
+    }
+}
+
+details>div {
+    background: blue;
+    position: fixed;
+    right: 54px;
+    left: 551px;
+    top: 134px;
+    bottom: 200px;
+    width: calc(100vw - 54px - 551px);
+    height: calc(100vh - 162px);
+}
+
+body:has(nav>details[open]) {
+
+    nav>details:not([open]),
+    .links,
+    footer>p {
+        display: none !important;
+    }
+}
+
+
+details[open] {
+    width: min(551px, 50vw);
+
+    summary {
+        font-size: 0px;
+
+        &::after {
+            font-size: 28px;
+            content: "BACK";
+        }
+    }
+}
+
+nav:has(>details[open]) {
+    justify-content: end;
+}
+
+summary:hover {
+    background-color: black;
+    outline: 4px solid #660000;
+    color: #b50000;
+    text-shadow: 3px 3px #2e0000;
+}
+
+
+footer {
+    height: 105px;
+    width: 100vw;
+    background-color: #020202;
+    border-top: 6px solid #333333;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    flex: 0 0 auto;
+
+    p {
+        width: fit-content;
+        display: none;
+        text-align: center;
+    }
+}
+
+body:has(nav>details[about]:hover) {
+    footer p.about {
+        display: block;
+    }
+}
+
+body:has(nav>details[map-list]:hover) {
+    footer p.map-list {
+        display: block;
+    }
+}
+
+body:has(nav>details[joining]:hover) {
+    footer p.joining {
+        display: block;
+    }
+}
+
+body:has(nav>details[support]:hover) footer p.discord {
+    display: block;
+}
+
+
+.links {
+    height: 100%;
+    width: 54px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    position: relative;
+    margin-left: auto;
+
+    a {
+        height: 54px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        text-decoration: none;
+
+        &::after {
+            background-size: contain;
+            background-repeat: no-repeat;
+            content: "";
+            display: inline-block;
+            height: 54px;
+            width: 54px;
+            min-height: 54px;
+            min-width: 54px;
+            top: 0;
+            right: 0;
+        }
+
+        p {
+            display: none;
+            color: #baba00;
+            text-shadow: 2px 2px #2e2e00;
+            text-align: end;
+            text-align-last: end;
+            position: absolute;
+            right: 54px;
+            width: max-content;
+        }
+
+        &[href="https://nzp.gay"]::after {
+            background-image: url(./assets/nzp-logo.png);
+        }
+
+        &[href="https://abgithub.com/blade04208/NZP-Server-Maps"]::after {
+            background-image: url(./assets/github-logo.png);
+        }
+
+        &[href="https://discord.gg/####"]::after {
+            background-image: url(./assets/discord-logo.png);
+        }
+
+        &[href="https://pterodactyl.blade0.net"]::after {
+            background-image: url(./assets/pterodactyl-logo.png);
+        }
+
+        &[href="https://blade0.net"]::after {
+            background-image: url(./assets/blade0-logo.png);
+        }
+
+        &:hover p {
+            display: block;
+        }
+    }
+}
+
+main>div:not(.links) {
+    background: black;
+    width: 100%;
+    height: 100%;
+    display: none;
+    margin-left: 15px;
+    border-left: 5px solid #e5e500;
+}
+
+main:has(nav>details[about][open]) #about {
+    display: block;
+}
+
+main:has(nav>details[map-list][open]) #map-list {
+    display: block;
+}
+
+main:has(nav>details[joining][open]) #joining {
+    display: block;
+}
+
+main:has(nav>details[support][open]) #support {
+    display: block;
+}
+
+#about p,
+#joining p,
+#support p {
+    line-height: 1.2;
+    margin: 24px 12px !important;
+}
+
+code {
+    background: #1a1a1a;
+    color: orange;
+    box-shadow: none;
+    padding: 2px 4px;
+}
