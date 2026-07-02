@@ -250,6 +250,7 @@ body:has(nav>details[support]:hover) footer p.discord {
             background-image: url(./assets/discord-logo.png);
         }
 
+
         &[href="https://pterodactyl.blade0.net"]::after {
             background-image: url(./assets/pterodactyl-logo.png);
         }
